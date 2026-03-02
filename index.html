@@ -318,11 +318,18 @@ startTimer();loadQuestion();
 }
 
 function startTimer(){
-document.getElementById("time").innerText=time;
-timer=setInterval(()=>{
-if(time>0){time--;document.getElementById("time").innerText=time;}
-else{clearInterval(timer);showResult();}
-},1000);
+    time = 90; // 1 min 30 sec
+    document.getElementById("time").innerText = time;
+    
+    timer = setInterval(()=>{
+        if(time > 0){
+            time--;
+            document.getElementById("time").innerText = time;
+        } else {
+            clearInterval(timer);
+            showResult(); // Time over, turant result
+        }
+    }, 1000);
 }
 
 function loadQuestion(){
