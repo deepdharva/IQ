@@ -343,15 +343,16 @@ if(currentQ<10) loadQuestion();
 else{clearInterval(timer);showResult();}
 }
 
-function showResult(){
-let popup=document.getElementById("resultPopup");
-popup.style.display="block";
-setTimeout(()=>{popup.style.transform="translate(-50%,-50%) scale(1)";},50);
-document.getElementById("finalScore").innerText="Your Score: "+score+"/10";
-let li=document.createElement("li");
-li.innerText="Score: "+score;
-document.getElementById("leaderboard").appendChild(li);
+let rating="";
+if(score <=3){
+    rating="Average IQ 🧠";
+}else if(score <=7){
+    rating="Smart 💡";
+}else{
+    rating="Genius 🚀";
 }
+
+document.getElementById("finalScore").innerHTML = "Your Score: "+score+"/10<br>IQ Rating: <strong>"+rating+"</strong>";
 
 function closePopup(){
 document.getElementById("resultPopup").style.display="none";
